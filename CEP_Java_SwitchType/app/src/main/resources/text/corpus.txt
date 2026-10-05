@@ -1,0 +1,330 @@
+# SwitchType training corpus. Every sentence was written by the team for this project.
+# Everyday communication of a person at home, with family, carers and friends.
+# Kept separate from the evaluation phrases (phrases.txt). One sentence per line.
+good morning, did you sleep well?
+i slept well, thank you.
+i did not sleep well last night.
+please give me some water.
+can i have a cup of tea?
+i would like some coffee now.
+the coffee is too strong for me.
+please add a little milk to my tea.
+i want to eat something light.
+what is for lunch today?
+what are we having for dinner?
+i would like rice and dal for lunch.
+the soup is very good.
+the food is too spicy for me.
+please cut the bread into small pieces.
+i am thirsty, please bring water.
+i am not feeling well today.
+i feel a little better now.
+my head hurts a lot today.
+my leg hurts when i move it.
+please call the doctor.
+please ask the doctor to come in the evening.
+the doctor said i should rest more.
+when is my next appointment?
+did you get my medicine from the shop?
+i need to take my tablets now.
+please give me my evening medicine.
+the nurse will come at ten.
+please help me sit up.
+please help me lie down.
+can you move my pillow a little?
+please turn me to the left side.
+please turn me to the right side.
+i want to sit in the chair for a while.
+please take me to the garden.
+i would like to go for a walk.
+can we go to the park today?
+it is very hot outside today.
+it is cold in the room tonight.
+please close the window, it is cold.
+please open the door for some air.
+please turn on the fan.
+please turn off the light, i want to sleep.
+the light is too bright for my eyes.
+can you make the room a little darker?
+please turn on the television.
+please change the channel.
+i want to watch the cricket match.
+what is on the news today?
+please turn the volume down.
+please turn the volume up a little.
+i cannot hear you, please speak louder.
+please speak slowly, i am tired.
+i understand what you said.
+i do not understand what you mean.
+please say that again.
+yes, that is right.
+no, that is not what i meant.
+maybe later, not now.
+i am fine, do not worry.
+please do not worry about me.
+thank you very much for your help.
+thank you for coming to see me.
+it was very nice to see you.
+please come again soon.
+when are you coming back?
+i will see you tomorrow.
+see you next week.
+have a good day at work.
+have a safe journey.
+call me when you reach home.
+did you reach home safely?
+how are you today?
+how is your family?
+how are the children?
+how was the exam?
+i am proud of you.
+i love you all very much.
+i miss you a lot.
+i am happy today.
+i am sad today.
+i feel lonely in the evening.
+please sit with me for some time.
+can you read a book to me?
+please read the newspaper to me.
+please read my messages to me.
+please reply to my brother for me.
+please call my brother.
+please call my mother.
+please call my father.
+please call my friend after dinner.
+can you send a message to my sister?
+tell her i will call later.
+tell him i am feeling better.
+please tell the family i said hello.
+my sister is coming on sunday.
+my brother lives in another city.
+my friends are coming this evening.
+my mother made sweets for me.
+we should buy some fruit.
+please buy milk and bread.
+please get some apples from the market.
+we need more rice at home.
+the shop is closed today.
+how much does it cost?
+that is too expensive.
+i want to pay the electricity bill.
+please check my bank account.
+did the money come into the account?
+please keep my wallet safe.
+where is my phone?
+where are my glasses?
+where did you put my book?
+i cannot find my keys.
+please look under the bed.
+it is on the table near the window.
+please bring my phone to me.
+please charge my phone.
+the battery is almost empty.
+the internet is not working.
+please restart the computer.
+i want to send an email.
+please open my email.
+i want to listen to some music.
+please play my favourite song.
+this song makes me happy.
+please stop the music.
+i want to sleep now.
+i want to rest for some time.
+please wake me up for dinner.
+please do not wake me before nine.
+i woke up early today.
+i am very tired after the exercise.
+the exercise was hard today.
+i want to do my exercises now.
+please help me with the exercises.
+my arm feels stronger today.
+i need to go to the bathroom now.
+please help me wash my face.
+i want to brush my teeth.
+i would like to take a bath.
+the water is too hot.
+the water is too cold.
+please bring a towel.
+please bring clean clothes.
+i want to wear the green shirt.
+please bring my warm jacket.
+my feet are cold.
+please bring another blanket.
+please put on my socks.
+i am too warm, take the blanket away.
+can you scratch my back?
+my skin is itching.
+please put some cream on my hands.
+please comb my hair.
+i want a haircut this week.
+what day is it today?
+what is the date today?
+what time is it now?
+is it morning or evening?
+is it going to rain today?
+it rained a lot last night.
+the weather is nice today.
+i like the cool breeze in the evening.
+please water the plants.
+the flowers in the garden are beautiful.
+i can hear the birds outside.
+the dog is barking again.
+please feed the cat.
+the cat is sleeping on my bed.
+please clean the room today.
+the room is very clean now.
+please make my bed.
+please change the bed sheets.
+please put the clothes in the cupboard.
+i want to write something.
+i want to write to my teacher.
+please help me fill this form.
+please sign this for me.
+i need a pen.
+please give me some paper.
+please make the letters bigger.
+the screen is too small.
+i cannot see the screen clearly.
+please move the screen closer.
+please move the screen a little to the left.
+this keyboard is easy to use.
+the scanning is too fast for me.
+the scanning is too slow today.
+please make the scanning slower.
+please make the scanning faster.
+i made a mistake, let me fix it.
+wait, i am still typing.
+give me a minute to finish.
+i have something to say.
+i want to tell you something important.
+please listen to me.
+please wait for me.
+please come here.
+please go and rest, i am fine.
+i need help now.
+it is urgent, please come.
+i am in pain.
+the pain is getting worse.
+the pain is less now.
+i feel dizzy.
+i feel sick.
+i want to vomit.
+i am breathing well now.
+i cannot breathe well, call the doctor.
+please check my temperature.
+i think i have a fever.
+my throat is sore.
+i have a cough today.
+please give me warm water.
+please make some ginger tea.
+i do not want any sugar.
+i want a little salt in the food.
+the food is cold, please heat it.
+please bring a spoon.
+please bring a plate.
+i have finished eating.
+i am full, thank you.
+i want to eat more.
+i like this dish very much.
+can we order pizza tonight?
+let us eat together.
+let us watch a movie tonight.
+which movie should we watch?
+i want to watch a comedy.
+that movie was very funny.
+the story was very sad.
+i want to play a game.
+let us play chess.
+you play very well.
+i won the game.
+you won this time.
+let us play again tomorrow.
+i want to learn something new.
+please teach me how to use this.
+how does this work?
+can you show me again?
+i will try it myself.
+i did it on my own.
+i am getting faster at typing.
+this is much easier than before.
+i need more practice.
+let us practise for ten minutes.
+i want to stop for today.
+it is time for a break.
+i want to go to the temple.
+i want to visit my grandmother.
+my grandmother is not well.
+we should visit her this week.
+please book a taxi for tomorrow.
+the taxi will come at eight.
+what time does the train leave?
+the bus is late again.
+i do not want to go out today.
+i prefer to stay at home.
+please lock the door at night.
+did you lock the main door?
+someone is at the door.
+please see who is at the door.
+it is the postman.
+there is a letter for you.
+please keep the letter for me.
+my friend sent me a gift.
+i want to thank my friend.
+happy birthday to you.
+congratulations on your new job.
+best wishes for the exam.
+all the best for tomorrow.
+good luck with the interview.
+get well soon.
+take care of yourself.
+please take care of your health.
+drink enough water every day.
+please eat on time.
+do not stay awake too late.
+it is late, you should sleep.
+good night, sleep well.
+good morning to everyone.
+good evening, how was your day?
+my day was good, thank you.
+my day was very long.
+work was busy today.
+school was fun today.
+we had a test in school.
+the teacher was happy with my work.
+i got good marks.
+i want to study for one hour.
+please help me with my homework.
+the homework is very difficult.
+i have finished my homework.
+i want to read a story.
+please bring my story book.
+please turn the page.
+please go back one page.
+i like this book.
+i do not like this book.
+can you find another book for me?
+please keep the book on the shelf.
+please put my glasses in the box.
+the glasses are dirty, please clean them.
+i need new glasses.
+please make an appointment with the eye doctor.
+please remind me to call the doctor.
+please remind me about the meeting.
+the meeting is on monday morning.
+i will not come to the meeting.
+please tell them i am sorry.
+i am sorry for the trouble.
+it is not your fault.
+do not be angry with me.
+i am not angry, i am only tired.
+please be patient with me.
+thank you for being patient.
+you are very kind to me.
+you are my best friend.
+i am lucky to have you.
+we will be fine.
+everything will be all right.
+i hope you have a nice day.
+i hope to see you soon.
+see you in the evening.
+bye, take care.

@@ -1,0 +1,63 @@
+# SwitchType evaluation phrases. Written by the team for this project (original text).
+# One phrase per line, 15 to 40 characters, lower case, only letters, digits, space . , ?
+# Even line numbers (0, 2, 4 ...) are TEST phrases, odd ones are TRAIN phrases (PhraseBank).
+i would like a glass of water please.
+can you open the window a little?
+please call my sister after lunch.
+i am feeling tired today.
+thank you for helping me this morning.
+the room is too cold for me.
+could you turn off the fan?
+i need to use the bathroom.
+what time is the doctor coming?
+please put my phone on charge.
+i want to watch the news tonight.
+my back hurts when i sit too long.
+can we go outside for some air?
+please tell mom i am fine.
+i would like tea with less sugar.
+the food was very good today.
+can you read the message to me?
+i do not want to sleep yet.
+please bring my blue shirt.
+when will my friends visit again?
+i am hungry, can i eat now?
+please switch on the light.
+i did not understand, say it again.
+my medicine is on the table.
+let us play cards in the evening.
+how was your day at work?
+please help me change my position.
+the music is too loud.
+i miss my old school friends.
+can you check the weather for me?
+i want to write a letter home.
+please do not close the door.
+is there any news from the bank?
+i would like to rest for an hour.
+thank you, that was very kind.
+please call the nurse now.
+i feel much better than yesterday.
+can you find my glasses?
+we should order food tonight.
+please send the photos to me.
+i like this song very much.
+my hands are cold, bring a blanket.
+can we talk about this later?
+please wake me up at 7.
+i want to go home now.
+the tea is too hot to drink.
+who called me this afternoon?
+please clean my glasses.
+i am happy to see you.
+can you lower the bed a little?
+my phone battery is low.
+please make the text bigger.
+i need a pen and some paper.
+is it raining outside today?
+let me finish this first.
+i will call you tomorrow.
+please open the curtains.
+i am not hungry right now.
+what are we doing this weekend?
+good night, see you in the morning.
