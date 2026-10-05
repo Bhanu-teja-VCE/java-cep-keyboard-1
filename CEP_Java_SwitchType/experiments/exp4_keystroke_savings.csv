@@ -1,0 +1,4 @@
+mode,target_chars,selections,keystroke_savings,presses_per_char,words,top1_start,top3_start,top5_start,top1_after1,top3_after1,top5_after1
+OFF,897,897,0.0000,2.000,186,0,0,0,0,0,0
+UNIGRAM,897,586,0.3467,1.307,186,7,25,35,57,93,116
+BIGRAM,897,532,0.4069,1.186,186,32,64,77,99,124,137

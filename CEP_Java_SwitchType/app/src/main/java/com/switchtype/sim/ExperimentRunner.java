@@ -76,73 +76,61 @@ public class ExperimentRunner {
         return frequency;
     }
 
-    /** Mean (and spread of CPM) over several runs of one configuration. */
+    /**
+     * Mean (and spread of CPM) over several runs of one configuration. Each run is kept as
+     * its metrics: cpm, total error, uncorrected error, presses/char, steps/char, unfinished.
+     */
     public static class Summary {
-        private final List<RunResult> runs = new ArrayList<RunResult>();
+        private final List<double[]> runs = new ArrayList<double[]>();
 
         public void add(RunResult r) {
-            runs.add(r);
+            add(new double[]{r.cpm(), r.totalErrorRate(), r.uncorrectedErrorRate(), r.pressesPerChar(),
+                r.stepsPerChar(), r.getUnfinished()});
         }
 
-        public List<RunResult> getRuns() {
-            return runs;
+        public void add(double[] metrics) {
+            runs.add(metrics);
         }
 
-        public double cpm() {
+        private double mean(int index) {
             double sum = 0;
-            for (RunResult r : runs) {
-                sum += r.cpm();
+            for (double[] r : runs) {
+                sum += r[index];
             }
             return sum / runs.size();
         }
 
+        public double cpm() {
+            return mean(0);
+        }
+
         public double cpmSd() {
-            double mean = cpm();
+            double m = cpm();
             double sum = 0;
-            for (RunResult r : runs) {
-                sum += (r.cpm() - mean) * (r.cpm() - mean);
+            for (double[] r : runs) {
+                sum += (r[0] - m) * (r[0] - m);
             }
             return runs.size() < 2 ? 0 : Math.sqrt(sum / (runs.size() - 1));
         }
 
         public double totalErrorRate() {
-            double sum = 0;
-            for (RunResult r : runs) {
-                sum += r.totalErrorRate();
-            }
-            return sum / runs.size();
+            return mean(1);
         }
 
         public double uncorrectedErrorRate() {
-            double sum = 0;
-            for (RunResult r : runs) {
-                sum += r.uncorrectedErrorRate();
-            }
-            return sum / runs.size();
+            return mean(2);
         }
 
         public double pressesPerChar() {
-            double sum = 0;
-            for (RunResult r : runs) {
-                sum += r.pressesPerChar();
-            }
-            return sum / runs.size();
+            return mean(3);
         }
 
         public double stepsPerChar() {
-            double sum = 0;
-            for (RunResult r : runs) {
-                sum += r.stepsPerChar();
-            }
-            return sum / runs.size();
+            return mean(4);
         }
 
         public int unfinished() {
-            int sum = 0;
-            for (RunResult r : runs) {
-                sum += r.getUnfinished();
-            }
-            return sum;
+            return (int) Math.round(mean(5) * runs.size());
         }
     }
 }
