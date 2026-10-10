@@ -58,7 +58,7 @@ public class KeyboardPanel extends JPanel implements SessionController.View {
         settingsButton.addActionListener(e -> openSettingsDialog());
         JButton practiceButton = toolButton("Start / stop practice");
         practiceButton.addActionListener(e -> togglePractice());
-        JButton manualButton = toolButton("📖 User Manual");
+        JButton manualButton = toolButton("User Manual");
         manualButton.addActionListener(e -> QuickManualDialog.show(frame));
         tools.add(settingsButton);
         tools.add(practiceButton);

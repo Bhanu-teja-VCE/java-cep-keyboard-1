@@ -84,6 +84,12 @@ public class QuickManualDialog extends JDialog {
                 "• Tab 2 (Calibrate): Runs 5 reaction trials to recommend the ideal dwell speed.\n" +
                 "• Settings button: Toggle layouts (Frequency, Alphabetical, QWERTY) and Adaptive Speed."));
 
+        content.add(Box.createVerticalStrut(10));
+        content.add(card("6. Scan Styles (Row-Column vs Group-Binary)", 
+                "• 'Row-Column' (Standard): Cleanly highlights one row at a time, then one letter.\n" +
+                "• 'Group-Binary': Highlights half the keys at once using a Huffman tree.\n" +
+                "  (If you see scattered keys highlighted at once, you are in Group-Binary mode. Go to Settings > Scan style > Row-column to switch back!)"));
+
         content.add(Box.createVerticalStrut(16));
 
         // Bottom Action Buttons
