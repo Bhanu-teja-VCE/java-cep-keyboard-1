@@ -59,8 +59,11 @@ public class CalibrationPanel extends JPanel {
         JButton start = new JButton("Start calibration");
         start.setFocusable(false);
         start.addActionListener(e -> begin());
-        intro.add(text, BorderLayout.CENTER);
-        intro.add(wrap(start), BorderLayout.SOUTH);
+        text.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 16));
+        intro.add(text, BorderLayout.NORTH);
+        JPanel startRow = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 0));
+        startRow.add(start);
+        intro.add(startRow, BorderLayout.CENTER);
 
         JPanel test = new JPanel(new BorderLayout(0, 12));
         box.setOpaque(true);
@@ -79,8 +82,9 @@ public class CalibrationPanel extends JPanel {
         JPanel buttons = new JPanel(new FlowLayout(FlowLayout.LEFT, 8, 0));
         buttons.add(accept);
         buttons.add(again);
-        result.add(resultText, BorderLayout.CENTER);
-        result.add(buttons, BorderLayout.SOUTH);
+        resultText.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 16));
+        result.add(resultText, BorderLayout.NORTH);
+        result.add(buttons, BorderLayout.CENTER);
 
         deck.add(intro, "intro");
         deck.add(test, "test");
@@ -96,6 +100,7 @@ public class CalibrationPanel extends JPanel {
     }
 
     private void begin() {
+        recommendation = null;
         reactions.clear();
         early = 0;
         cards.show(deck, "test");
@@ -128,6 +133,7 @@ public class CalibrationPanel extends JPanel {
         box.setForeground(t.highlightText);
         box.setBorder(BorderFactory.createLineBorder(t.highlightBorder, 8));
         box.setText("PRESS NOW");
+        trialLabel.setText("Trial " + (reactions.size() + 1) + " of " + TRIALS + "  -  press now!");
         state = State.SHOWN;
         shownAt = System.nanoTime();
     }
@@ -198,6 +204,16 @@ public class CalibrationPanel extends JPanel {
                 + "</b>, interval: <b>" + r.intervalMs + " ms</b><br>"
                 + "In the simulation this type reached " + Math.round(r.cpm) + " characters per minute.</p>"
                 + "<p>These come from simulated users, not from real people. Adjust them if they do not feel right.</p></html>");
+    }
+
+    /** True while the box shows PRESS NOW (used by the screenshot tour). */
+    public boolean isWaitingForPress() {
+        return state == State.SHOWN;
+    }
+
+    /** True once the recommendation is on screen. */
+    public boolean hasRecommendation() {
+        return recommendation != null && state == State.DONE;
     }
 
     /** Stops the trial timer when the tab is left. */

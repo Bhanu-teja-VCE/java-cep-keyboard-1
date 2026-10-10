@@ -3,3 +3,4 @@ logs/
 data/
 db.properties
 *.class
+cp.txt

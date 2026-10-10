@@ -33,13 +33,15 @@ public class KeyboardPanel extends JPanel implements SessionController.View {
     private final AppContext app;
     private final MainFrame frame;
     private final KeyboardView view = new KeyboardView();
-    private final JTextArea text = new JTextArea(3, 40);
+    private final JScrollPane keys = new JScrollPane(view);
+    private final JPanel center = new JPanel(new BorderLayout(0, 6));
+    private final JTextArea text = new JTextArea(2, 40);
     private final JLabel status = new JLabel(" ");
     private final JLabel target = new JLabel(" ");
     private final JLabel message = new JLabel(" ");
     private final JLabel restBanner = new JLabel(" ");
-    private final JPanel top = new JPanel(new GridLayout(0, 1, 0, 4));
-    private final JPanel south = new JPanel(new GridLayout(0, 1, 0, 4));
+    private final JPanel top = new JPanel(new GridLayout(0, 1, 0, 2));
+    private final JPanel south = new JPanel(new GridLayout(1, 0, 12, 0));
     private final JPanel tools = new JPanel(new FlowLayout(FlowLayout.LEFT, 6, 0));
     private final AudioCue audio = new AudioCue();
     private SessionController controller;
@@ -47,10 +49,10 @@ public class KeyboardPanel extends JPanel implements SessionController.View {
     private List<Key> lastHighlight;
 
     public KeyboardPanel(AppContext app, MainFrame frame) {
-        super(new BorderLayout(0, 8));
+        super(new BorderLayout(0, 6));
         this.app = app;
         this.frame = frame;
-        setBorder(BorderFactory.createEmptyBorder(10, 12, 10, 12));
+        setBorder(BorderFactory.createEmptyBorder(6, 12, 6, 12));
 
         JButton settingsButton = toolButton("Settings...");
         settingsButton.addActionListener(e -> openSettingsDialog());
@@ -58,10 +60,9 @@ public class KeyboardPanel extends JPanel implements SessionController.View {
         practiceButton.addActionListener(e -> togglePractice());
         tools.add(settingsButton);
         tools.add(practiceButton);
-        tools.add(new JLabel("Switch: " + "Space (default), Enter or mouse click - set in Settings"));
+        tools.add(status);
 
         top.add(tools);
-        top.add(status);
         top.add(target);
         add(top, BorderLayout.NORTH);
 
@@ -69,10 +70,8 @@ public class KeyboardPanel extends JPanel implements SessionController.View {
         text.setFocusable(false);
         text.setLineWrap(true);
         text.setWrapStyleWord(true);
-        text.setBorder(BorderFactory.createEmptyBorder(8, 10, 8, 10));
-        JPanel center = new JPanel(new BorderLayout(0, 8));
+        text.setBorder(BorderFactory.createEmptyBorder(4, 10, 4, 10));
         center.add(new JScrollPane(text), BorderLayout.NORTH);
-        JScrollPane keys = new JScrollPane(view);
         keys.setBorder(BorderFactory.createEmptyBorder());
         center.add(keys, BorderLayout.CENTER);
         add(center, BorderLayout.CENTER);
@@ -177,17 +176,17 @@ public class KeyboardPanel extends JPanel implements SessionController.View {
         text.setFont(big);
         text.setBackground(theme.keyFill);
         text.setForeground(theme.keyText);
-        for (JPanel p : new JPanel[]{this, top, south, tools}) {
+        for (JPanel p : new JPanel[]{this, top, south, tools, center}) {
             p.setBackground(theme.background);
         }
+        keys.getViewport().setBackground(theme.background);
+        keys.setBackground(theme.background);
         for (JLabel l : new JLabel[]{status, target, message, restBanner}) {
             l.setFont(body);
             l.setForeground(theme.text);
         }
+        status.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 14));
         target.setFont(big.deriveFont(Font.BOLD));
-        for (java.awt.Component c : tools.getComponents()) {
-            c.setForeground(c instanceof JLabel ? theme.text : c.getForeground());
-        }
     }
 
     // ---------------------------------------------------------------- SessionController.View
@@ -205,9 +204,9 @@ public class KeyboardPanel extends JPanel implements SessionController.View {
         view.setState(controller.getGrid(), lit, controller.dynamicLabels(), controller.isPaused());
         text.setText(controller.getText() + "|");
         Settings s = controller.getSettings();
-        status.setText("Profile: " + profile.getName() + "   |   " + s.getStyle() + " scan, " + s.getLayout()
-                + " layout, prediction " + s.getPrediction() + "   |   interval " + controller.getCurrentIntervalMs()
-                + " ms" + (s.isAdaptive() ? " (adaptive)" : "") + "   |   " + (app.isMySql() ? "MySQL" : "offline"));
+        status.setText("  " + profile.getName() + "  |  " + s.getStyle() + ", " + s.getLayout() + ", prediction "
+                + s.getPrediction() + "  |  " + controller.getCurrentIntervalMs() + " ms" + (s.isAdaptive() ? " adaptive" : "")
+                + "  |  switch: " + s.getSwitchChoice() + "  |  " + (app.isMySql() ? "MySQL" : "offline"));
         String phrase = controller.getPracticeTarget();
         target.setText(phrase == null ? "Free typing" : "Type:  " + phrase);
     }

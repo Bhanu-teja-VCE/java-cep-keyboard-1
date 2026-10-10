@@ -153,6 +153,12 @@ public class DataPanel extends JPanel {
         });
     }
 
+    /** Shows one table in the viewer (also used by the screenshot tour). */
+    public void showTable(String table) {
+        tables.setSelectedItem(table);
+        browse();
+    }
+
     private void browse() {
         if (!frame.getApp().isMySql()) {
             privacyResult.setText("Connect to MySQL first (MySQL settings...).");

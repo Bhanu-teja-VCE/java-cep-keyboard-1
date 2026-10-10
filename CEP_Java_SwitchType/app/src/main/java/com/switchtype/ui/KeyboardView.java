@@ -3,7 +3,11 @@ package com.switchtype.ui;
 import com.switchtype.model.Key;
 import com.switchtype.model.KeyAction;
 
+import com.switchtype.model.Config;
+
 import javax.swing.JComponent;
+import javax.swing.JScrollPane;
+import javax.swing.JViewport;
 import java.awt.BasicStroke;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -88,11 +92,39 @@ public class KeyboardView extends JComponent {
         return bounds;
     }
 
+    /**
+     * The key size actually drawn: the chosen size, made smaller when the window is too small
+     * to show the whole keyboard, but never below the 44 px minimum target size (WCAG 2.5.5).
+     */
+    int effectiveKeySize() {
+        if (!(getParent() instanceof JViewport) || !(getParent().getParent() instanceof JScrollPane) || grid.length == 0) {
+            return keySize;
+        }
+        // the whole scroll pane, so the answer does not depend on whether a scroll bar is showing
+        Dimension view = getParent().getParent().getSize();
+        if (view.width <= 0 || view.height <= 0) {
+            return keySize;
+        }
+        int rows = grid.length;
+        int fitHeight = (view.height - 2 * MARGIN - (rows - 1) * GAP) / rows;
+        int widest = 0;
+        for (Key[] row : grid) {
+            int units = 0;
+            for (Key k : row) {
+                units += units(k);
+            }
+            widest = Math.max(widest, units);
+        }
+        // a row of u units is u * size + (u - 1) * GAP wide (see keyBounds)
+        int fitWidth = (view.width - 2 * MARGIN - (widest - 1) * GAP) / Math.max(1, widest);
+        return Math.max(Config.MIN_KEY_SIZE, Math.min(keySize, Math.min(fitHeight, fitWidth)));
+    }
+
     @Override
     public Dimension getPreferredSize() {
         int width = 0;
         int height = MARGIN;
-        for (Rectangle r : keyBounds(grid, keySize).values()) {
+        for (Rectangle r : keyBounds(grid, effectiveKeySize()).values()) {
             width = Math.max(width, r.x + r.width);
             height = Math.max(height, r.y + r.height);
         }
@@ -106,7 +138,7 @@ public class KeyboardView extends JComponent {
         g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
         g.setColor(theme.background);
         g.fillRect(0, 0, getWidth(), getHeight());
-        for (Map.Entry<Key, Rectangle> e : keyBounds(grid, keySize).entrySet()) {
+        for (Map.Entry<Key, Rectangle> e : keyBounds(grid, effectiveKeySize()).entrySet()) {
             paintKey(g, e.getKey(), e.getValue());
         }
         if (paused) {
@@ -140,6 +172,9 @@ public class KeyboardView extends JComponent {
         g.drawRoundRect(r.x + border / 2, r.y + border / 2, r.width - border, r.height - border, 10, 10);
 
         String label = labels.containsKey(k) ? labels.get(k) : k.getLabel();
+        if (k.getAction() == KeyAction.PREDICTION && label.isEmpty()) {
+            label = "(no word)";
+        }
         drawCentered(g, label, r, ink, lit);
     }
 

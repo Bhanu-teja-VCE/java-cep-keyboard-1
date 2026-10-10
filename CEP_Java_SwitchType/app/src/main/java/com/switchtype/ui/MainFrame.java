@@ -72,6 +72,10 @@ public class MainFrame extends JFrame {
         KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(this::dispatchSwitch);
         setSize(1280, 860);
         setLocationRelativeTo(null);
+        java.awt.Rectangle screen = java.awt.GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds();
+        if (screen.height < 900 || screen.width < 1300) {
+            setExtendedState(MAXIMIZED_BOTH);            // small laptop screens: use all of it
+        }
     }
 
     /** Routes the switch key to the keyboard or the calibration tab (Unit IV: keyboard events). */
@@ -264,6 +268,10 @@ public class MainFrame extends JFrame {
 
     public KeyboardPanel getKeyboard() {
         return keyboard;
+    }
+
+    public DataPanel getData() {
+        return data;
     }
 
     public CalibrationPanel getCalibration() {
