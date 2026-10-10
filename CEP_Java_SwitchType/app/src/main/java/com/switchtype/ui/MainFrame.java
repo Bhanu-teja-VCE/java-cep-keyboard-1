@@ -12,6 +12,7 @@ import com.switchtype.predict.LanguageModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
+import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyEvent;
@@ -146,6 +147,7 @@ public class MainFrame extends JFrame {
             }
         }
         useProfile(chosen);
+        SwingUtilities.invokeLater(() -> QuickManualDialog.show(this));
     }
 
     public void useProfile(UserProfile p) {
